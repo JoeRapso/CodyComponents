@@ -31,13 +31,7 @@ export default defineComponent({
 <style lang="scss">
 // Use the following line if the SCSS code uses functions from mixins, such as defineColorHSL
  @import "~codyhouse-framework/main/assets/css/base/_mixins.scss";
-
-/* --------------------------------
-File#: _1_alert
-Title: Alert
-Descr: Feedback message
-Usage: codyhouse.co/license
----------/* -------------------------------- 
+/* -------------------------------- 
 
 File#: _1_button-effects
 Title: Button Effects
