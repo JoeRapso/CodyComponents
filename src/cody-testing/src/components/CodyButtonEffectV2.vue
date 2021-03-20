@@ -1,23 +1,14 @@
 <template>
-<a class="btn-fx-1" href="#0">
-  <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
-    <span>{{title}}</span>
-
-    <div class="btn-fx-1__icon-wrapper" aria-hidden="true">
-      <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-
-      <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-    </div>
-  </div>
+    <a class="btn-fx-2 text-sm padding-y-xs padding-x-sm" href="#0" aria-label="Slide">
+  <span>
+    <em><i>S</i><i>L</i><i>I</i><i>D</i><i>E</i></em>
+    <em><i>S</i><i>L</i><i>I</i><i>D</i><i>E</i></em>
+  </span>
 </a>
 </template>
 
+
 <script lang="ts">
-// This component comes from https://codyhouse.co/ds/components/app/button-effects
-// 1. Make button content (Learn more) parameterised
-// 2. Add onClick event
-// 3. Clean up all eslint warnings
-// 4. Implement the other button versions. Use a parameter to select the button style
 import { defineComponent, reactive, watch } from "vue";
 
 export default defineComponent({ props: {
@@ -29,8 +20,9 @@ export default defineComponent({ props: {
 </script>
 
 <style lang="scss">
-// Use the following line if the SCSS code uses functions from mixins, such as defineColorHSL
+
  @import "~codyhouse-framework/main/assets/css/base/_mixins.scss";
+
 /* -------------------------------- 
 
 File#: _1_button-effects
@@ -383,4 +375,5 @@ Usage: codyhouse.co/license
     box-shadow: var(--shadow-sm), 0 0 0 3px alpha(var(--color-contrast-higher), 0.15);
   }
 }
+
 </style>
