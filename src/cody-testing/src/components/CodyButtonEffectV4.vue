@@ -1,12 +1,12 @@
 <template>
-<a class="btn-fx-4 padding-y-xs padding-x-md radius-md" href="#0">
+<a class="btn-fx-4 padding-y-xs padding-x-md radius-md">
   <span>{{title}}</span>
 </a>
 </template>
 
 
 <script lang="ts">
-import { defineComponent, reactive, watch } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({ props: {
       title: {

@@ -1,5 +1,5 @@
 <template>
-<a class="btn-fx-1" href="#0">
+<a class="btn-fx-1">
   <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
     <span>{{title}}</span>
 
@@ -18,13 +18,13 @@
 // 2. Add onClick event
 // 3. Clean up all eslint warnings
 // 4. Implement the other button versions. Use a parameter to select the button style
-import { defineComponent, reactive, watch } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({ props: {
       title: {
         type: String,
       }
-    }
+  }
 })
 </script>
 

@@ -12,7 +12,7 @@
 
 
 <script lang="ts">
-import { defineComponent, reactive, watch } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({ props: {
       title: {

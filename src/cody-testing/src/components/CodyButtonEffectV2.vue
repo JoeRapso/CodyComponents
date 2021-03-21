@@ -1,5 +1,5 @@
 <template>
-    <a class="btn-fx-2 text-sm padding-y-xs padding-x-sm" href="#0" aria-label="Slide">
+    <a class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide">
   <span>
     <em><i>S</i><i>L</i><i>I</i><i>D</i><i>E</i></em>
     <em><i>S</i><i>L</i><i>I</i><i>D</i><i>E</i></em>
@@ -9,7 +9,7 @@
 
 
 <script lang="ts">
-import { defineComponent, reactive, watch } from "vue";
+import { defineComponent } from "vue";
 
 export default defineComponent({ props: {
       title: {
