@@ -5,7 +5,7 @@
       And once the button is clicked on, it swaps to a different component
   <component :is="ButtonEffect1" title="Button1" v-on:click="ButtonEffect1 = 'ButtonEffect4'"></component>
   -->
-  <ButtonEffect title="Titleeeeee" effect="1"/>
+  <ButtonEffect title="Title" effect="1"/>
 </template>
 
 <script lang="ts">
