@@ -1,5 +1,6 @@
 <template>
-<a class="btn-fx-1">
+
+<a v-if="effect == 0"  class="btn-fx-1">
   <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
     <span>{{title}}</span>
 
@@ -10,6 +11,28 @@
     </div>
   </div>
 </a>
+
+<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide">
+  <span>
+    <em><i>{{title[0]}}</i><i>{{title[1]}}</i><i>{{title[2]}}</i><i>{{title[3]}}</i><i>{{title[4]}}</i></em>
+    <em><i>{{title[0]}}</i><i>{{title[1]}}</i><i>{{title[2]}}</i><i>{{title[3]}}</i><i>{{title[4]}}</i></em>
+  </span>
+</a>
+
+<button  v-if="effect == 2" class="reset btn-fx-3 radius-md">
+  <div class="btn-fx-3__inner padding-y-xs padding-x-md">
+    <span>{{title}}</span>
+  
+    <figure class="btn-fx-3__icon-wrapper" aria-hidden="true">
+      <svg class="icon" viewBox="0 0 20 20"><path d="M17.524,9.148l-13-8A1,1,0,0,0,3,2V18a1,1,0,0,0,1.524.852l13-8a1,1,0,0,0,0-1.7Z"/></svg>
+    </figure>
+  </div>
+</button>
+
+<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md">
+  <span>{{title}}</span>
+</a>
+
 </template>
 
 <script lang="ts">
@@ -23,6 +46,9 @@ import { defineComponent } from "vue";
 export default defineComponent({ props: {
       title: {
         type: String,
+      },
+      effect: {
+        type: Number
       }
   }
 })
