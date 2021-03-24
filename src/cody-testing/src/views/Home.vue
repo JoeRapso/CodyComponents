@@ -1,10 +1,5 @@
 <template>
   <h1 class="page-header">Page Header</h1>
-  <!--The component tag allows the swaping of components.
-      In this case the <component> tag is bound to "ButtonEffect1" component, and props can be passed to it.
-      And once the button is clicked on, it swaps to a different component
-  <component :is="ButtonEffect1" title="Button1" v-on:click="ButtonEffect1 = 'ButtonEffect4'"></component>
-  -->
   <ButtonEffect title="Button" effect= "3" />
 </template>
 
