@@ -1,6 +1,6 @@
 <template>
 
-<a v-if="effect == 0"  class="btn-fx-1" @click="greet">
+<a v-if="effect == 0"  class="btn-fx-1" @click="buttonClicked">
   <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
     <span>{{title}}</span>
 
@@ -12,14 +12,14 @@
   </div>
 </a>
 
-<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide">
+<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="buttonClicked">
   <span>
     <em><i>{{title[0]}}</i><i>{{title[1]}}</i><i>{{title[2]}}</i><i>{{title[3]}}</i><i>{{title[4]}}</i></em>
     <em><i>{{title[0]}}</i><i>{{title[1]}}</i><i>{{title[2]}}</i><i>{{title[3]}}</i><i>{{title[4]}}</i></em>
   </span>
 </a>
 
-<button  v-if="effect == 2" class="reset btn-fx-3 radius-md">
+<button  v-if="effect == 2" class="reset btn-fx-3 radius-md" @click="buttonClicked">
   <div class="btn-fx-3__inner padding-y-xs padding-x-md">
     <span>{{title}}</span>
   
@@ -29,7 +29,7 @@
   </div>
 </button>
 
-<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md">
+<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md" @click="buttonClicked">
   <span>{{title}}</span>
 </a>
 
@@ -52,8 +52,8 @@ export default defineComponent({ props: {
       }
   },
   methods: {
-    greet() {
-      window.alert('Hello')
+    buttonClicked() {
+      window.alert('Button Clicked')
     }
   }
 })
