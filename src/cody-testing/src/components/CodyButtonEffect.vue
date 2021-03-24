@@ -1,6 +1,6 @@
 <template>
 
-<a v-if="effect == 0"  class="btn-fx-1">
+<a v-if="effect == 0"  class="btn-fx-1" @click="greet">
   <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
     <span>{{title}}</span>
 
@@ -50,6 +50,11 @@ export default defineComponent({ props: {
       effect: {
         type: Number
       }
+  },
+  methods: {
+    greet() {
+      window.alert('Hello')
+    }
   }
 })
 </script>
