@@ -1,6 +1,6 @@
 <template>
   <h1 class="page-header">Page Header</h1>
-  <ButtonEffect title="Button" effect= "3" />
+  <ButtonEffect title="Button" effect= "1" />
 </template>
 
 <script lang="ts">
