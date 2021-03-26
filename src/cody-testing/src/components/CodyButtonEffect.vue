@@ -1,6 +1,6 @@
 <template>
 
-<a v-if="effect == 0"  class="btn-fx-1" v-on:click="buttonClicked">
+<a v-if="effect == 0"  class="btn-fx-1"  @click="$emit('onClick')">
   <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
     <span>{{title}}</span>
 
@@ -12,14 +12,14 @@
   </div>
 </a>
 
-<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide">
-  <span>
+<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="$emit('onClick')">
+  <span><!-- look at lowercase issues -->
     <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
     <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
   </span>
 </a>
 
-<button  v-if="effect == 2" class="reset btn-fx-3 radius-md">
+<button  v-if="effect == 2" class="reset btn-fx-3 radius-md" @click="$emit('onClick')">
   <div class="btn-fx-3__inner padding-y-xs padding-x-md">
     <span>{{title}}</span>
   
@@ -29,7 +29,7 @@
   </div>
 </button>
 
-<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md">
+<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md"  @click="$emit('onClick')">
   <span>{{title}}</span>
 </a>
 
@@ -43,18 +43,14 @@
 // 4. Implement the other button versions. Use a parameter to select the button style
 import { defineComponent } from "vue";
 
-export default defineComponent({ props: {
+export default defineComponent({ 
+  props: {
       title: {
         type: String
       },
       effect: {
         type: Number
       }
-  },
-  methods: {
-    buttonClicked() {
-      window.alert('Button Clicked')
-    }
   }
 })
 </script>
