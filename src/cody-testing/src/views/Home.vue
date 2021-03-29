@@ -1,6 +1,6 @@
 <template>
   <h1 class="page-header">Page Header</h1>
-  <ButtonEffect title="Button" effect= "2" @on-click="onClick"/>
+  <ButtonEffect title="Button" effect= "0" @click="onClick"/>
 </template>
 
 <script lang="ts">

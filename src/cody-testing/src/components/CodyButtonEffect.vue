@@ -1,10 +1,10 @@
 <template>
 
-<a v-if="effect == 0"  class="btn-fx-1"  @click="$emit('onClick')">
+<a v-if="effect == 0"  class="btn-fx-1" @click="onClick">
   <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
     <span>{{title}}</span>
 
-    <div class="btn-fx-1__icon-wrapper" aria-hidden="true">
+    <div class="btn-fx-1__icon-wrapper" aria-hidden="true" @click="onClick">
       <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
 
       <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
@@ -12,14 +12,14 @@
   </div>
 </a>
 
-<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="$emit('onClick')">
-  <span><!-- look at lowercase issues -->
+<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="onClick">
+  <span>
     <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
     <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
   </span>
 </a>
 
-<button  v-if="effect == 2" class="reset btn-fx-3 radius-md" @click="$emit('onClick')">
+<button  v-if="effect == 2" class="reset btn-fx-3 radius-md" @click="onClick">
   <div class="btn-fx-3__inner padding-y-xs padding-x-md">
     <span>{{title}}</span>
   
@@ -29,7 +29,7 @@
   </div>
 </button>
 
-<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md"  @click="$emit('onClick')">
+<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md" @click="onClick">
   <span>{{title}}</span>
 </a>
 
@@ -44,6 +44,8 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({ 
+  name: 'ButtonEffect',
+  emits: ['click'],
   props: {
       title: {
         type: String
@@ -51,7 +53,12 @@ export default defineComponent({
       effect: {
         type: Number
       }
+  },
+  methods: {
+    onClick(){
+      this.$emit('click');
   }
+}
 })
 </script>
 
