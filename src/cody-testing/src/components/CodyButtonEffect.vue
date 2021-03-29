@@ -43,6 +43,7 @@
 // 4. Implement the other button versions. Use a parameter to select the button style
 import { defineComponent } from "vue";
 
+
 export default defineComponent({ 
   name: 'ButtonEffect',
   emits: ['click'],
@@ -54,11 +55,12 @@ export default defineComponent({
         type: Number
       }
   },
-  methods: {
-    onClick(){
-      this.$emit('click');
+  Setup() {
+    const onClick = () => {
+      emit('click');
+    }
+    return {onClick}
   }
-}
 })
 </script>
 
