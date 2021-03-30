@@ -55,7 +55,7 @@ export default defineComponent({
         type: Number
       }
   },
-  Setup() {
+  setup(props, {emit}) {
     const onClick = () => {
       emit('click');
     }
