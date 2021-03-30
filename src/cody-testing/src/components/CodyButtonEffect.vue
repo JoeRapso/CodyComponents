@@ -12,14 +12,14 @@
   </div>
 </a>
 
-<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="onClick">
+<a v-else-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="onClick">
   <span>
     <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
     <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
   </span>
 </a>
 
-<button  v-if="effect == 2" class="reset btn-fx-3 radius-md" @click="onClick">
+<button v-else-if="effect == 2" class="reset btn-fx-3 radius-md" @click="onClick">
   <div class="btn-fx-3__inner padding-y-xs padding-x-md">
     <span>{{title}}</span>
   
@@ -29,7 +29,7 @@
   </div>
 </button>
 
-<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md" @click="onClick">
+<a v-else class="btn-fx-4 padding-y-xs padding-x-md radius-md" @click="onClick">
   <span>{{title}}</span>
 </a>
 
