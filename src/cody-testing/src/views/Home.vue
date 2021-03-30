@@ -1,7 +1,6 @@
 <template>
   <h1 class="page-header">Page Header</h1>
-
-  <ButtonEffect />
+  <ButtonEffect title="Button" effect= "0" @click="onClick"/>
 </template>
 
 <script lang="ts">
@@ -13,5 +12,10 @@ export default defineComponent({
   components: {
     ButtonEffect
   },
+  methods: {
+    onClick() {
+      window.alert('Button Clicked');
+    }
+  }
 });
 </script>

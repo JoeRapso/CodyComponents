@@ -1,15 +1,38 @@
 <template>
-<a class="btn-fx-1" href="#0">
-  <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
-    <span>Learn More</span>
 
-    <div class="btn-fx-1__icon-wrapper" aria-hidden="true">
+<a v-if="effect == 0"  class="btn-fx-1" @click="onClick">
+  <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
+    <span>{{title}}</span>
+
+    <div class="btn-fx-1__icon-wrapper" aria-hidden="true" @click="onClick">
       <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
 
       <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
     </div>
   </div>
 </a>
+
+<a  v-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="onClick">
+  <span>
+    <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
+    <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
+  </span>
+</a>
+
+<button  v-if="effect == 2" class="reset btn-fx-3 radius-md" @click="onClick">
+  <div class="btn-fx-3__inner padding-y-xs padding-x-md">
+    <span>{{title}}</span>
+  
+    <figure class="btn-fx-3__icon-wrapper" aria-hidden="true">
+      <svg class="icon" viewBox="0 0 20 20"><path d="M17.524,9.148l-13-8A1,1,0,0,0,3,2V18a1,1,0,0,0,1.524.852l13-8a1,1,0,0,0,0-1.7Z"/></svg>
+    </figure>
+  </div>
+</button>
+
+<a v-if="effect == 3" class="btn-fx-4 padding-y-xs padding-x-md radius-md" @click="onClick">
+  <span>{{title}}</span>
+</a>
+
 </template>
 
 <script lang="ts">
@@ -18,14 +41,27 @@
 // 2. Add onClick event
 // 3. Clean up all eslint warnings
 // 4. Implement the other button versions. Use a parameter to select the button style
-import { defineComponent, reactive, watch } from "vue";
+import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "ButtonEffect",
-  setup() {
-   return{};
+
+export default defineComponent({ 
+  name: 'ButtonEffect',
+  emits: ['click'],
+  props: {
+      title: {
+        type: String
+      },
+      effect: {
+        type: Number
+      }
   },
-});
+  setup(props, {emit}) {
+    const onClick = () => {
+      emit('click');
+    }
+    return {onClick}
+  }
+})
 </script>
 
 <style lang="scss">
