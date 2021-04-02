@@ -1,38 +1,38 @@
 <template>
+  <div>
+    <a v-if="effect == 0"  class="btn-fx-1" @click="onClick">
+      <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
+        <span>{{title}}</span>
 
-<a v-if="effect == 0"  class="btn-fx-1" @click="onClick">
-  <div class="btn-fx-1__inner padding-y-xs padding-x-sm">
-    <span>{{title}}</span>
+        <div class="btn-fx-1__icon-wrapper" aria-hidden="true" @click="onClick">
+          <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
 
-    <div class="btn-fx-1__icon-wrapper" aria-hidden="true" @click="onClick">
-      <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+          <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </div>
+      </div>
+    </a>
 
-      <svg class="icon margin-left-xxs" viewBox="0 0 20 20"><polyline points="8 5 13 10 8 15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
-    </div>
+    <a v-else-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="onClick">
+      <span>
+        <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
+        <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
+      </span>
+    </a>
+
+    <button v-else-if="effect == 2" class="reset btn-fx-3 radius-md" @click="onClick">
+      <div class="btn-fx-3__inner padding-y-xs padding-x-md">
+        <span>{{title}}</span>
+      
+        <figure class="btn-fx-3__icon-wrapper" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 20 20"><path d="M17.524,9.148l-13-8A1,1,0,0,0,3,2V18a1,1,0,0,0,1.524.852l13-8a1,1,0,0,0,0-1.7Z"/></svg>
+        </figure>
+      </div>
+    </button>
+
+    <a v-else class="btn-fx-4 padding-y-xs padding-x-md radius-md" @click="onClick">
+      <span>{{title}}</span>
+    </a>
   </div>
-</a>
-
-<a v-else-if="effect == 1" class="btn-fx-2 text-sm padding-y-xs padding-x-sm" aria-label="Slide" @click="onClick">
-  <span>
-    <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
-    <em><i v-for="(char, index) in title" :key="index">{{char}}</i></em>
-  </span>
-</a>
-
-<button v-else-if="effect == 2" class="reset btn-fx-3 radius-md" @click="onClick">
-  <div class="btn-fx-3__inner padding-y-xs padding-x-md">
-    <span>{{title}}</span>
-  
-    <figure class="btn-fx-3__icon-wrapper" aria-hidden="true">
-      <svg class="icon" viewBox="0 0 20 20"><path d="M17.524,9.148l-13-8A1,1,0,0,0,3,2V18a1,1,0,0,0,1.524.852l13-8a1,1,0,0,0,0-1.7Z"/></svg>
-    </figure>
-  </div>
-</button>
-
-<a v-else class="btn-fx-4 padding-y-xs padding-x-md radius-md" @click="onClick">
-  <span>{{title}}</span>
-</a>
-
 </template>
 
 <script lang="ts">

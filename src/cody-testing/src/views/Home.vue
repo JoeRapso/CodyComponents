@@ -1,26 +1,18 @@
 <template>
   <div>
     <h1 class="page-header">Page Header</h1>
-    <ButtonEffect title="Button" effect="0" @click="onClick" /> 
-    <ButtonEffect title="Button" effect="1" @click="onClick" />
-    <ButtonEffect title="Button" effect="2" @click="onClick" />
-    <ButtonEffect title="Button" effect="3" @click="onClick" />
+    <AlertEffect>test</AlertEffect> 
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import ButtonEffect from '@/components/CodyButtonEffect.vue';
+import AlertEffect from '@/components/AlertEffect.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
-    ButtonEffect
+    AlertEffect
   },
-  methods: {
-    onClick() {
-      window.alert('Button Clicked');
-    }
-  }
 });
 </script>
