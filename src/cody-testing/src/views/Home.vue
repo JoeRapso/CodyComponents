@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="page-header">Page Header</h1>
-    <AlertEffect icon="Warning">
+    <AlertEffect icon="Success">
       <p class="text-sm"><strong>Info:</strong> <a href="#0" class="color-inherit">Learn more</a></p>
     </AlertEffect> 
   </div>
