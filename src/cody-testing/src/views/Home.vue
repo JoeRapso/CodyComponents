@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="page-header">Page Header</h1>
-    <AlertEffect>test</AlertEffect> 
+    <AlertEffect icon="Info">test</AlertEffect> 
   </div>
 </template>
 
@@ -13,6 +13,6 @@ export default defineComponent({
   name: 'Home',
   components: {
     AlertEffect
-  },
+  }
 });
 </script>
