@@ -27,7 +27,7 @@ module.exports = {
     'max-len': 'off',
     'lines-between-class-members': 'off',
     'object-curly-newline': 'off',
-    'import/no-cycle': 'off'
+    'import/no-cycle': 'off',
   },
   overrides: [
     {
