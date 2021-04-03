@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- make dynamicClass function/design better in the morning -->
         <div class="alert alert--is-visible padding-sm radius-md js-alert" :class="dynamicClass()" role="alert">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
