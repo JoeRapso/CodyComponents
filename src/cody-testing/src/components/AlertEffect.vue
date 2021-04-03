@@ -14,7 +14,7 @@
                 <path v-else-if=" icon === 'Warning'" d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M13.645,5L13,14h-2l-0.608-9 H13.645z M12,20c-1.105,0-2-0.895-2-2c0-1.105,0.895-2,2-2c1.105,0,2,0.895,2,2C14,19.105,13.105,20,12,20z"></path>
             </svg>
 
-            <p class="text-sm"><strong>Info:</strong> <slot></slot> <a href="#0" class="color-inherit">Learn more</a></p>
+            <slot></slot>
             </div>
         
             <button class="reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus" @click="toggle=false">
@@ -38,7 +38,7 @@ export default defineComponent({
     props: {
         icon: {
             type: String
-        }
+        },
     },
     data() {
         return {
