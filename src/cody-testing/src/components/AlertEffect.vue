@@ -5,13 +5,16 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <svg class="icon icon--sm alert__icon margin-right-xxs" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M14.658,18.284 c-0.661,0.26-2.952,1.354-4.272,0.191c-0.394-0.346-0.59-0.785-0.59-1.318c0-0.998,0.328-1.868,0.919-3.957 c0.104-0.395,0.231-0.907,0.231-1.313c0-0.701-0.266-0.887-0.987-0.887c-0.352,0-0.742,0.125-1.095,0.257l0.195-0.799 c0.787-0.32,1.775-0.71,2.621-0.71c1.269,0,2.203,0.633,2.203,1.837c0,0.347-0.06,0.955-0.186,1.375l-0.73,2.582 c-0.151,0.522-0.424,1.673-0.001,2.014c0.416,0.337,1.401,0.158,1.887-0.071L14.658,18.284z M13.452,8c-0.828,0-1.5-0.672-1.5-1.5 s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S14.28,8,13.452,8z"></path>
+                      <path v-if=" alert === 'Info'" d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M14.658,18.284 c-0.661,0.26-2.952,1.354-4.272,0.191c-0.394-0.346-0.59-0.785-0.59-1.318c0-0.998,0.328-1.868,0.919-3.957 c0.104-0.395,0.231-0.907,0.231-1.313c0-0.701-0.266-0.887-0.987-0.887c-0.352,0-0.742,0.125-1.095,0.257l0.195-0.799 c0.787-0.32,1.775-0.71,2.621-0.71c1.269,0,2.203,0.633,2.203,1.837c0,0.347-0.06,0.955-0.186,1.375l-0.73,2.582 c-0.151,0.522-0.424,1.673-0.001,2.014c0.416,0.337,1.401,0.158,1.887-0.071L14.658,18.284z M13.452,8c-0.828,0-1.5-0.672-1.5-1.5 s0.672-1.5,1.5-1.5s1.5,0.672,1.5,1.5S14.28,8,13.452,8z"></path>
+                      <path v-else-if=" alert === 'Success'" d="M12,0A12,12,0,1,0,24,12,12.035,12.035,0,0,0,12,0ZM10,17.414,4.586,12,6,10.586l4,4,8-8L19.414,8Z"></path>
+                      <path v-else-if=" alert === 'Error'" d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M13.645,5L13,14h-2l-0.608-9 H13.645z M12,20c-1.105,0-2-0.895-2-2c0-1.105,0.895-2,2-2c1.105,0,2,0.895,2,2C14,19.105,13.105,20,12,20z"></path>
+                      <path v-else-if=" alert === 'Warning'" d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M13.645,5L13,14h-2l-0.608-9 H13.645z M12,20c-1.105,0-2-0.895-2-2c0-1.105,0.895-2,2-2c1.105,0,2,0.895,2,2C14,19.105,13.105,20,12,20z"></path>
                     </svg>
 
                     <p class="text-sm"><strong>Info:</strong> this is an info message. <a href="#0" class="color-inherit">Learn more</a></p>
                 </div>
             
-                <button class="reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus">
+                <button class="reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus" v-if="button === 'On'">
                     <svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                         <title>Close alert</title>
                         <line x1="3" y1="3" x2="17" y2="17" />
@@ -62,9 +65,12 @@ import { defineComponent } from "vue";
 export default defineComponent({
     name: "AlertEffect",
     props: {
-        icon: {
-            type: String
+        alert: {
+          type: String
         },
+        button: {
+          type: String
+        }
     },
     data() {
         return {
@@ -73,21 +79,29 @@ export default defineComponent({
     },
     setup(props) {
         const dynamicClass = ()=> {
-            if (props.icon === 'Success') {
-            const className = 'alert--success'
-            return className
+            let className;
+            if (props.alert === 'Success') {
+             className = 'alert--success'
             }
-            if (props.icon === 'Error') {
-            const className = 'alert--error'
-            return className
+            else if (props.alert === 'Error') {
+             className = 'alert--error'
             }
-            if (props.icon === 'Warning') {
-            const className = 'alert--warning'
-            return className
+            else if (props.alert === 'Warning') {
+             className = 'alert--warning'
             }
-        }
-        return {dynamicClass}
-    }
+            return className 
+        }/*
+        const buttonEffect = ()=> {
+            let classNameButton;
+            let classNameIcon;
+            if (props.button === 'On') {
+              classNameButton = 'reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus'
+              classNameIcon = 'icon'
+            }
+            return classNameButton && classNameIcon
+        } */
+      return {dynamicClass}
+}
 })
 
 </script>
@@ -163,6 +177,7 @@ Usage: codyhouse.co/license
   clip-path: none;
 }
 
+/* color blocks, not provided from cody source code
 .x-nkq {
     background-color: hsla(var(--color-primary-h),var(--color-primary-s),var(--color-primary-l),0.2);
     color: var(--color-contrast-higher);
@@ -181,5 +196,7 @@ Usage: codyhouse.co/license
 .x-lc {
     padding: var(--space-sm);
 }
+
+*/
 
 </style>
