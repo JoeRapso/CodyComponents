@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="page-header">Page Header</h1>
-    <AlertEffect alert="Error" button="On" @click="onClick()">
+    <AlertEffect alert="Warning" button="On" @successAlertClosed="successAlertClosed" @errorAlertClosed="errorAlertClosed" @warningAlertClosed="warningAlertClosed">
       <p class="text-sm"><strong>Info:</strong> <a href="#0" class="color-inherit">Learn more</a></p>
     </AlertEffect> 
   </div>
@@ -17,8 +17,14 @@ export default defineComponent({
     AlertEffect
   },
   methods: {
-    onClick() {
-      window.alert('Button Clicked');
+    successAlertClosed() {
+      window.alert('Success Alert Closed');
+    },
+    errorAlertClosed() {
+      window.alert('Error Alert Closed');
+    },
+    warningAlertClosed() {
+      window.alert('Warning Alert Closed');
     }
   }
 });

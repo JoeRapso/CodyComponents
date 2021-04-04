@@ -14,7 +14,7 @@
                     <p class="text-sm"><strong>Info:</strong> this is an info message. <a href="#0" class="color-inherit">Learn more</a></p>
                 </div>
             
-                <button class="reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus" v-if="button === 'On'"  @click="visible=false">
+                <button class="reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus" v-if="button === 'On'"  @click="visible=null, successAlertClosed(), errorAlertClosed(), warningAlertClosed()">
                     <svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                         <title>Close alert</title>
                         <line x1="3" y1="3" x2="17" y2="17" />
@@ -72,7 +72,6 @@ export default defineComponent({
           type: String
         }
     },
-    emits: ['click'],
     data() {
         return {
             visible: 'alert--is-visible'
@@ -92,20 +91,23 @@ export default defineComponent({
             }
             return className 
         }
-        const onClick = () => {
-            emit('click');
-    }/*
-        const buttonEffect = ()=> {
-            let classNameButton;
-            let classNameIcon;
-            if (props.button === 'On') {
-              classNameButton = 'reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus'
-              classNameIcon = 'icon'
-            }
-            return classNameButton && classNameIcon
-        } */
-      return {dynamicClass, onClick}
-}
+        const successAlertClosed = () => {
+          if (props.alert === 'Success'){
+            emit('successAlertClosed');
+          }
+        }
+        const errorAlertClosed = () => {
+          if (props.alert === 'Error'){
+            emit('errorAlertClosed');
+          }
+        }
+        const warningAlertClosed = () => {
+          if (props.alert === 'Warning'){
+            emit('warningAlertClosed');
+          }
+        }
+        return {dynamicClass, successAlertClosed, errorAlertClosed, warningAlertClosed}
+    }
 })
 
 </script>
