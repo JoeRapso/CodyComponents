@@ -1,7 +1,7 @@
 <template>
     <div>
         <!-- make dynamicClass function/design better in the morning -->
-        <div class="alert alert--is-visible padding-sm radius-md js-alert" :class="dynamicClass()" role="alert">
+        <div class="alert padding-sm radius-md js-alert" :class="[dynamicClass(), visible]" role="alert">
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <svg class="icon icon--sm alert__icon margin-right-xxs" viewBox="0 0 24 24" aria-hidden="true">
@@ -14,7 +14,7 @@
                     <p class="text-sm"><strong>Info:</strong> this is an info message. <a href="#0" class="color-inherit">Learn more</a></p>
                 </div>
             
-                <button class="reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus" v-if="button === 'On'">
+                <button class="reset alert__close-btn margin-left-sm js-alert__close-btn js-tab-focus" v-if="button === 'On'"  @click="visible=false">
                     <svg class="icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
                         <title>Close alert</title>
                         <line x1="3" y1="3" x2="17" y2="17" />
@@ -72,12 +72,13 @@ export default defineComponent({
           type: String
         }
     },
+    emits: ['click'],
     data() {
         return {
-            toggle: true,
+            visible: 'alert--is-visible'
         };
     },
-    setup(props) {
+    setup(props, {emit}) {
         const dynamicClass = ()=> {
             let className;
             if (props.alert === 'Success') {
@@ -90,7 +91,10 @@ export default defineComponent({
              className = 'alert--warning'
             }
             return className 
-        }/*
+        }
+        const onClick = () => {
+            emit('click');
+    }/*
         const buttonEffect = ()=> {
             let classNameButton;
             let classNameIcon;
@@ -100,7 +104,7 @@ export default defineComponent({
             }
             return classNameButton && classNameIcon
         } */
-      return {dynamicClass}
+      return {dynamicClass, onClick}
 }
 })
 
