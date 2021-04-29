@@ -36,11 +36,7 @@
 </template>
 
 <script lang="ts">
-// This component comes from https://codyhouse.co/ds/components/app/button-effects
-// 1. Make button content (Learn more) parameterised
-// 2. Add onClick event
-// 3. Clean up all eslint warnings
-// 4. Implement the other button versions. Use a parameter to select the button style
+
 import { defineComponent } from "vue";
 
 
